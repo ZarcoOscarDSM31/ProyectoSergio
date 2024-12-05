@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Inicio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
         body {
             font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
+            min-height: 100vh;
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.ibb.co/gFZcxnK/background.jpg');
             background-size: cover;
             background-repeat: no-repeat;
@@ -19,106 +21,70 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #fff;
         }
 
-        .container {
-            max-width: 600px;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        .glass-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.34);
+            border-radius: 1rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        h1 {
-            color: #52c41a;
-            margin-bottom: 20px;
-        }
-
-        p {
-            color: #bfbfbf;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: white;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin: 0 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            outline: none;
-            border: 2px solid white;
-        }
-
-        .btn:hover { 
-            background-color: black;
-    color: green;
-     border: 2px solid rgb(1, 111, 1);
-        }
-
-        .btn i {
-            margin-right: 8px;
-        }
-
-        .btn-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .buttons {
-            padding: 10px;
-        }
-
-        .btn1 {
-            display: inline-block;
-            padding: 24px;
-            background-color: white;
-            color: black;
-            text-decoration: none;
-            border-radius: 100px;
-            transition: background-color 0.3s ease;
-            margin: 0 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            outline: none;
-            
-        }
-
-        .btn1:hover { 
-            background-color: black;
-    color: green;
-    border: 2px solid rgb(1, 111, 1);
-
+        .glass-button:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s ease-in-out;
         }
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <h1>Bienvenido al portal de la <span>Universidad Tecnológica del Valle de Toluca</span></h1>
-        <p>Este es un portal donde se proporcionan varias APIs relacionadas con la institución.</p>
-        <a href="https://utvt.edomex.gob.mx/" target="_blank" class="btn"><i class="bi bi-house"></i> Visitar el Sitio
-            Web</a>
-        <a href="/api-docs" class="btn"><i class="bi bi-braces-asterisk"></i>Ver Swagger</a>
-    </div>
+<body class="min-h-screen flex items-center justify-center">
+    <div class="glass-card container mx-auto max-w-4xl p-10 text-center">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8 mt-12">
+            Bienvenido al portal de la <span class="text-green-700">Universidad Tecnológica del Valle de Toluca</span>
+        </h1>
+        <p class="text-gray-300 mb-10 text-lg">Explora nuestras APIs y recursos para estudiantes y personal.</p>
 
-   <div style="position: absolute; bottom: 100px; width: 100%; display: flex; justify-content: center;">
-        <div class="buttons"><a href="/huella" class="btn1 btn-icon"><i class="bi bi-fingerprint"></i></a></div>
-        <div class="buttons"><a href="/cuervobus" class="btn1 btn-icon"><i class="bi bi-bus-front-fill"></i></a></div>
-        <div class="buttons"><a href="http://www.accesotec.com.mx" target="_blank" class="btn1 btn-icon"><i class="bi bi-person-vcard"></i></a></div>
-        <div class="buttons"><a href="/descargar-apk" target="_blank" class="btn1 btn-icon"><i class="bi bi-google-play"></i></a></div>
-    </div>
-        
+        <!-- Botones principales -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <!-- Botón Transporte -->
+            <a href="/cuervobus"
+                class="glass-button flex items-center justify-center p-6 bg-gradient-to-r from-green-500 to-green-700 text-white rounded-lg shadow-lg hover:shadow-xl">
+                <i class="bi bi-bus-front-fill text-4xl mr-4"></i>
+                <span class="text-xl font-semibold">Transporte</span>
+            </a>
+            <!-- Botón Inicio de Sesión -->
+            <a href="/huella"
+                class="glass-button flex items-center justify-center p-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl">
+                <i class="bi bi-fingerprint text-4xl mr-4"></i>
+                <span class="text-xl font-semibold">Iniciar Sesión</span>
+            </a>
+            <!-- Botón Descargar App -->
+            <a href="/descargar-apk"
+                class="glass-button flex items-center justify-center p-6 bg-gradient-to-r from-red-500 to-red-700 text-white rounded-lg shadow-lg hover:shadow-xl">
+                <i class="bi bi-google-play text-4xl mr-4"></i>
+                <span class="text-xl font-semibold">Descargar App</span>
+            </a>
+            <!-- Botón Credenciales -->
+            <a href="http://www.accesotec.com.mx" target="_blank"
+                class="glass-button flex items-center justify-center p-6 bg-gradient-to-r from-purple-500 to-purple-700 text-white rounded-lg shadow-lg hover:shadow-xl">
+                <i class="bi bi-person-vcard text-4xl mr-4"></i>
+                <span class="text-xl font-semibold">Credenciales</span>
+            </a>
+        </div>
 
+        <!-- Botones secundarios -->
+        <div class="flex flex-wrap justify-center gap-6">
+            <a href="https://utvt.edomex.gob.mx/" target="_blank"
+                class="glass-button px-10 py-4 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700">
+                <i class="bi bi-house mr-2"></i> Sitio Web
+            </a>
+            <a href="/api-docs"
+                class="glass-button px-10 py-4 bg-gray-800 text-white rounded-lg shadow-md hover:bg-gray-900">
+                <i class="bi bi-braces-asterisk mr-2"></i> Swagger
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>
