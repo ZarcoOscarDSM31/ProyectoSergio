@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credencial de Alumno</title>
+    <style>
+        /* Estilos CSS para la credencial */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .credencial {
+            width: 300px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .nombre {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .campo {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="credencial">
+        <div class="nombre"><%= alumno.nombre %></div>
+        <div class="nombre"><%= alumno.apellidos %></div>
+        <div class="nombre"><%= alumno.matricula %></div>
+        <!-- Agrega más campos según sea necesario -->
+        <img src="http://74.208.74.18/imagenes/images.png" alt="Fotografía del alumno">
+    </div>
+</body>
+</html>
